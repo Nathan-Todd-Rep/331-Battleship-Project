@@ -23,3 +23,16 @@ public class battleship {
 
         return;
     }
+    private static void takeGuess{
+        //display grid being attacked
+
+        // get user coordinates for attack
+        int xCord = new Scanner(System.in).nextInt();
+        int xCord = new Scanner(System.in).nextInt();
+
+        if (grid[xCord][yCord])
+        }
+    // takeGuessComputer
+    public boolean playGame{
+
+        }
