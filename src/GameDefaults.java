@@ -4,7 +4,7 @@
 //Holds every constant the Battleship game uses so no class has to
 //hard-code a board size, cell code or ship length.
 
-//A class made only of constants, set up the same way as GeometricObjectDefaults.
+//A class made only of constants.
 //It is final so it cannot be subclassed.
 
 public final class GameDefaults {
