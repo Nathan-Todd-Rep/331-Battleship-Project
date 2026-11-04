@@ -1,2 +1,54 @@
 # 331-Battleship-Project
 Final Project for CSC 331
+
+A two-board game of Battleship written in Java with a Swing GUI. The player
+places a fleet of five ships on a 10 x 10 grid and takes turns firing at the
+computer's hidden fleet. The first side to sink every enemy ship wins.
+
+## Project layout
+
+```
+src/        Java source files
+bin/        compiled .class files (not committed)
+```
+
+| File | What it holds |
+|---|---|
+| `src/GameDefaults.java` | Constants for the whole game: board size, cell codes, ship names and lengths |
+| `src/Coordinate.java` | One cell on the board, a row and a column |
+
+More classes are added one small push at a time (ships, board, players, GUI).
+
+## Compile and run
+
+From the project folder:
+
+```
+javac -d bin src/*.java
+java -cp bin CoordinateTester
+```
+
+Requires Java 21 (or any JDK 17+). Swing comes with the JDK, nothing extra
+to install.
+
+## Code rules we follow
+
+These match the CSC 331 programming exercises:
+
+- Comment block at the top of every file, above every method, and above every
+  loop, decision and complex line.
+- Constants instead of hard-coded numbers (use `GameDefaults`).
+- One `return` per method, as the last line, never inside a conditional.
+- No `break` (except in a `switch`), no `continue`, no recursion.
+- Arrays only for data structures (no `ArrayList`).
+- Descriptive variable names and Java naming conventions.
+
+## Team workflow
+
+1. Pull the latest `main` before starting: `git pull`
+2. Make a branch for your piece of work: `git switch -c your-feature`
+3. Commit small, working steps.
+4. Push the branch and open a pull request into `main`.
+5. Someone else on the team reviews it before it is merged.
+
+Never push straight to `main`.
