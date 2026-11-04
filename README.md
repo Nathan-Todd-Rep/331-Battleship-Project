@@ -31,12 +31,4 @@ java -cp bin CoordinateTester
 Requires Java 21 (or any JDK 17+). Swing comes with the JDK, nothing extra
 to install.
 
-## Team workflow
-
-1. Pull the latest `main` before starting: `git pull`
-2. Make a branch for your piece of work: `git switch -c your-feature`
-3. Commit small, working steps.
-4. Push the branch and open a pull request into `main`.
-5. Someone else on the team reviews it before it is merged.
-
 Never push straight to `main`.
