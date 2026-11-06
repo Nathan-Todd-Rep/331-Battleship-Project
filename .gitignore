@@ -1,0 +1,13 @@
+# Compiled class files
+bin/
+*.class
+
+# Stats/save files the game writes while testing
+*.dat
+
+# Editor and OS files
+.vscode/launch.json
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
