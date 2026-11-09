@@ -1,6 +1,10 @@
 import java.util.Scanner;
 import java.io.File;
 
+
+// for computer
+import java.util.Random;
+
 public class Battleship {
     public final static String SHIP_CODE = "*";
     public final static String OCEAN_CODE = "0";
