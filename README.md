@@ -17,7 +17,7 @@ bin/        compiled .class files (not committed)
 | `src/GameDefaults.java` | Constants for the whole game: board size, cell codes, ship names and lengths |
 | `src/Coordinate.java` | One cell on the board, a row and a column |
 
-More classes are added one small push at a time (ships, board, players, GUI).
+More classes are going to be added later! (ships, board, players, GUI).
 
 ## Compile and run
 
