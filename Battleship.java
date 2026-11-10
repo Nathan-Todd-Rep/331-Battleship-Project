@@ -52,7 +52,7 @@ public class Battleship {
         boolean hitTarget = true;
         // get user coordinates for attack
         int xCord = new Scanner(System.in).nextInt();
-        int xCord = new Scanner(System.in).nextInt();
+        int yCord = new Scanner(System.in).nextInt();
 
         while (hitTarget == true){
             if (grid[xCord][yCord].equals(SHIP_CODE){
@@ -68,8 +68,31 @@ public class Battleship {
         }
         }
     private static void takeGuessComputer{
-        //same as takeGuess but with random coordinates generated
+        //display grid being attacked
+        boolean hitTarget = true;
+        // get user coordinates for attack
+        Random rand = new Random();
+        
+        int xCord = rand.nextInt(GRID_SIZE);
+        int yCord = rand.nextInt(GRID_SIZE);
+
+        while (hitTarget == true){
+            if (grid[xCord][yCord].equals(SHIP_CODE){
+                grid[xCord][yCord] = HIT_CODE;
+                battleshipsLeft -=1;
+                hitTarget = true;
+                // helper method to decide whether to go right/left or up/down
+            
+            else if (grid[xCord][yCord].equals(HIT_CODE){
+                grid[xCord][yCord] = HIT_CODE;
+                // reiterate and let player select new cordinate
+            else{
+              hitTarget = false;  
     }
     public boolean playGame{
-        
+        boolean gameOver = false;
+
+        while(gameOver == false){
+            
+        }
         }
