@@ -9,6 +9,7 @@ public class Battleship {
     public final static String SHIP_CODE = "*";
     public final static String OCEAN_CODE = "0";
     public final static String HIT_CODE = "1";
+    public final static String MISS_CODE = "X";
 
     public final static int GRID_SIZE = 10;
 
@@ -21,7 +22,7 @@ public class Battleship {
     private void readGrid(String dataFile) throws Exception {
 
         //initialize scanner object for data input
-        Scanner input = new Scanner(new File(dataFile));
+        Scanner input = new Scanner(new File(testfile1));
 
         // nextInt() to string conversion does not work
         // outer loop stores a row and removes commas
@@ -46,48 +47,6 @@ public class Battleship {
         }
 
         return;
-    }
-    private static void takeGuess{
-        //display grid being attacked
-        boolean hitTarget = true;
-        // get user coordinates for attack
-        int xCord = new Scanner(System.in).nextInt();
-        int yCord = new Scanner(System.in).nextInt();
-
-        while (hitTarget == true){
-            if (grid[xCord][yCord].equals(SHIP_CODE){
-                grid[xCord][yCord] = HIT_CODE;
-                battleshipsLeft -=1;
-                hitTarget = true;
-            
-            else if (grid[xCord][yCord].equals(HIT_CODE){
-                grid[xCord][yCord] = HIT_CODE;
-                // reiterate and let player select new cordinate
-            else{
-              hitTarget = false;  
-        }
-        }
-    private static void takeGuessComputer{
-        //display grid being attacked
-        boolean hitTarget = true;
-        // get user coordinates for attack
-        Random rand = new Random();
-        
-        int xCord = rand.nextInt(GRID_SIZE);
-        int yCord = rand.nextInt(GRID_SIZE);
-
-        while (hitTarget == true){
-            if (grid[xCord][yCord].equals(SHIP_CODE){
-                grid[xCord][yCord] = HIT_CODE;
-                battleshipsLeft -=1;
-                hitTarget = true;
-                // helper method to decide whether to go right/left or up/down
-            
-            else if (grid[xCord][yCord].equals(HIT_CODE){
-                grid[xCord][yCord] = HIT_CODE;
-                // reiterate and let player select new cordinate
-            else{
-              hitTarget = false;  
     }
     public boolean playGame{
         boolean gameOver = false;
