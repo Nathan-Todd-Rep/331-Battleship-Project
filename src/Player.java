@@ -195,37 +195,24 @@ public class Player {
     }
 
 
-    //Takes this player's turn against opponent. A hit earns another shot, so
-    //the player keeps firing until a miss or until every opponent ship cell is hit.
+    //Takes this player's turn against opponent: picks one cell, fires at it
+    //and prints whether it hit. Each turn is one shot, hit or miss.
 
     public void takeTurn(Player opponent) {
+        Coordinate target = chooseTarget();
 
-        //True while the last shot hit; starts true so the first shot is taken.
+        //Remember the cell so it is never chosen again, then fire at it.
 
-        boolean keepFiring = true;
+        shotsFired[target.getRow()][target.getColumn()] = true;
+        String shotResult = opponent.receiveShot(target);
 
-        //Keep firing while the last shot hit and the opponent still has ships.
+        //Tell the players where the shot went and whether it hit.
 
-        while (keepFiring && !opponent.hasLost()) {
-            Coordinate target = chooseTarget();
-
-            //Remember the cell so it is never chosen again, then fire at it.
-
-            shotsFired[target.getRow()][target.getColumn()] = true;
-            String shotResult = opponent.receiveShot(target);
-
-            //Tell the players where the shot went and whether it hit.
-
-            if (shotResult.equals(GameDefaults.HIT_CODE)) {
-                System.out.println(name + " fired at " + target + " and hit a ship!");
-            }
-            else {
-                System.out.println(name + " fired at " + target + " and missed.");
-            }
-
-            //Only a hit earns another shot.
-
-            keepFiring = shotResult.equals(GameDefaults.HIT_CODE);
+        if (shotResult.equals(GameDefaults.HIT_CODE)) {
+            System.out.println(name + " fired at " + target + " and hit a ship!");
+        }
+        else {
+            System.out.println(name + " fired at " + target + " and missed.");
         }
 
         return;
@@ -235,6 +222,7 @@ public class Player {
     //Prints this board to the console with the row and column numbers.
     //When showShips is false, ships that have not been hit print as ocean,
     //so the opponent's board can be shown without giving away their ships.
+    //Ocean prints as GameDefaults.OCEAN_SYMBOL so it is easy to tell from a miss.
 
     public void displayGrid(boolean showShips) {
 
@@ -252,14 +240,16 @@ public class Player {
             System.out.print(row + " ");
 
             for (int column = 0; column < grid[row].length; column++) {
-                String cellCode = grid[row][column];
+                String cellSymbol = grid[row][column];
 
-                //Hide ships that have not been hit when showShips is false.
+                //Ocean prints as the ocean symbol, and so do ships that have
+                //not been hit when showShips is false, so they stay hidden.
 
-                if (!showShips && cellCode.equals(GameDefaults.SHIP_CODE)) {
-                    cellCode = GameDefaults.OCEAN_CODE;
+                if (cellSymbol.equals(GameDefaults.OCEAN_CODE)
+                        || (!showShips && cellSymbol.equals(GameDefaults.SHIP_CODE))) {
+                    cellSymbol = GameDefaults.OCEAN_SYMBOL;
                 }
-                System.out.print(cellCode + " ");
+                System.out.print(cellSymbol + " ");
             }
             System.out.println();
         }
