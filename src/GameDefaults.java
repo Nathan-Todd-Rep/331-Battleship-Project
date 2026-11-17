@@ -16,12 +16,17 @@ public final class GameDefaults {
     //The codes stored in each cell of a board grid.
     //OCEAN_CODE is an empty cell, SHIP_CODE is part of a ship that has not
     //been hit, HIT_CODE is a ship cell that was hit, MISS_CODE is a shot
-    //that landed in open water.
+    //that landed in open water. The board files only use OCEAN_CODE and SHIP_CODE.
 
     public final static String OCEAN_CODE = "0";
     public final static String SHIP_CODE = "*";
-    public final static String HIT_CODE = "1";
-    public final static String MISS_CODE = "-";
+    public final static String HIT_CODE = "X";
+    public final static String MISS_CODE = "O";
+
+    //What an ocean cell looks like on screen. The files store ocean as 0,
+    //but 0 looks too much like the miss code O, so it prints as ~ instead.
+
+    public final static String OCEAN_SYMBOL = "~";
 
     //The length of each ship type, in cells.
 
