@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Main extends JFrame {
+public class swing_main extends JFrame {
 
     public static final int GRID_SIZE = 10;
 
