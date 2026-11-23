@@ -17,6 +17,14 @@ public class swing_main extends JFrame {
         ImageIcon icon = new ImageIcon("battleshipicon.png");
         battleshipFrame.setIconImage(icon.getImage());
 
+        //MAC icon update
+        if (Taskbar.isTaskbarSupported()) {
+            Taskbar taskbar = Taskbar.getTaskbar();
+            if (taskbar.isSupported(Taskbar.Feature.ICON_IMAGE)) {
+                taskbar.setIconImage(icon.getImage()); // Updates the macOS Dock icon
+            }
+        }
+
         JPanel humanPanel = new JPanel(new GridLayout(10, 10, 2, 2));
         JPanel computerPanel = new JPanel(new GridLayout(10, 10, 2, 2));
 
@@ -24,8 +32,11 @@ public class swing_main extends JFrame {
             for (int col = 0; col < GRID_SIZE; col++) {
 
                 JButton button = new JButton();
+                if(grid[row][col].equals("0")){
+                button.setBackground(Color.CYAN);}
 
-                button.setBackground(Color.CYAN);
+                else if(grid[row][col].equals("*")){
+                    button.setBackground(Color.GRAY);}
                 button.setOpaque(true);
                 button.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
