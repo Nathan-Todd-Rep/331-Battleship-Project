@@ -44,7 +44,7 @@ public class Battleship {
 
         while (!gameOver) {
             displayBoards(false);
-            human.takeTurn(computer);
+            System.out.println(human.takeTurn(computer));
 
             //If your shot hit the computer's last ship cell you win, otherwise
             //the computer takes its shot and may hit your last ship cell.
@@ -54,7 +54,7 @@ public class Battleship {
                 gameOver = true;
             }
             else {
-                computer.takeTurn(human);
+                System.out.println(computer.takeTurn(human));
                 gameOver = human.hasLost();
             }
             System.out.println();

@@ -149,6 +149,15 @@ public class Player {
     }
 
 
+    //Returns the code stored in one cell of this board, so the GUI can
+    //pick the right color for it.
+
+    public String getCellCode(Coordinate cell) {
+
+        return grid[cell.getRow()][cell.getColumn()];
+    }
+
+
     //Marks a shot from the opponent at target on this board.
     //Returns GameDefaults.HIT_CODE if it hit a ship, or GameDefaults.MISS_CODE
     //if it landed in open water.
@@ -195,27 +204,37 @@ public class Player {
     }
 
 
-    //Takes this player's turn against opponent: picks one cell, fires at it
-    //and prints whether it hit. Each turn is one shot, hit or miss.
+    //Fires one shot at target on the opponent's board.
+    //Returns a message saying where the shot went and whether it hit.
 
-    public void takeTurn(Player opponent) {
-        Coordinate target = chooseTarget();
+    public String fireAt(Player opponent, Coordinate target) {
+        String shotMessage;
 
         //Remember the cell so it is never chosen again, then fire at it.
 
         shotsFired[target.getRow()][target.getColumn()] = true;
         String shotResult = opponent.receiveShot(target);
 
-        //Tell the players where the shot went and whether it hit.
+        //Build the message for the hit or the miss.
 
         if (shotResult.equals(GameDefaults.HIT_CODE)) {
-            System.out.println(name + " fired at " + target + " and hit a ship!");
+            shotMessage = name + " fired at " + target + " and hit a ship!";
         }
         else {
-            System.out.println(name + " fired at " + target + " and missed.");
+            shotMessage = name + " fired at " + target + " and missed.";
         }
 
-        return;
+        return shotMessage;
+    }
+
+
+    //Takes this player's turn against opponent: picks one cell and fires at it.
+    //Each turn is one shot, hit or miss. Returns the message from fireAt.
+
+    public String takeTurn(Player opponent) {
+        Coordinate target = chooseTarget();
+
+        return fireAt(opponent, target);
     }
 
 

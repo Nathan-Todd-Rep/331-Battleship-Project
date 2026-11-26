@@ -33,7 +33,7 @@ public class PlayerTester {
         //Keep giving the shooter turns until the target has no ship cells left.
 
         while (!target.hasLost()) {
-            shooter.takeTurn(target);
+            System.out.println(shooter.takeTurn(target));
             turns++;
         }
 
